@@ -1,0 +1,32 @@
+<div class="container">
+<div class="col-md-7">
+
+<div class="p-2 bd-highlight">
+<h3><td>在庫車両詳細　登録番号<%= @car.id %>番</td></h3>
+</div>
+<table class="table table-bordered">
+<tr>
+<td>車種</td><td><%= @car.car_model %></td>
+</tr>
+<tr>
+<td>年式</td><td><%= @car.years %></td>
+</tr>
+<tr>
+<td>本体価格</td><td><%= @car.body_price %>万円</td>
+</tr>
+<tr>
+<td>支払い総額</td><td><%= @car.total_price %>万円</td>
+</tr>
+<tr>
+<td>車両画像</td><td><%= image_tag @car.image, size: "250x200" %></td>
+</tr>
+</table>
+<tr>
+<td><%= link_to "編集する", edit_admin_car_path(@car.id), class: "btn btn-secondary"%></td>
+</tr>
+<tr>
+<td><%= link_to "削除", admin_car_path(@car.id), class: "btn btn-secondary", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+</tr>
+</thead>
+</tbody>
+</div>

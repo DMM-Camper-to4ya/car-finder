@@ -8,8 +8,12 @@ devise_for :customers,skip: [:passwords], controllers: {
 
 # 管理者用
 # URL /admin/sign_in ...
+root to: 'admin/homes#top'
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+namespace :admin do
+resources :cars, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+end
 end

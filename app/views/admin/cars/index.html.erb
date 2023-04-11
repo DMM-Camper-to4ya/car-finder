@@ -1,0 +1,34 @@
+<div class='container px-5 px-sm-0'>
+<div class="row">
+<div class="col-md-3">
+</div>
+
+<div class="col-md-7 ">
+<h2>当店在庫一覧</h2>
+<table class='table table-hover table-inverse'>
+<thead>
+<tr>
+<th>ID</th>
+<th>車種</th>
+<th>年式</th>
+<th>本体価格</th>
+<th>支払い総額</th>
+<th>車両画像</th>
+</tr>
+</thead>
+<tbody>
+<% @cars.each do |car| %>
+<tr>
+<td><%= car.id %></td>
+<td><%= car.car_model %></td>
+<td><%= car.years %>（年）</td>
+<td><%= car.body_price %>万円</td>
+<td><%= car.total_price %>万円</td>
+<td><%= image_tag car.image, size: "130x100" %></td>
+</tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+</div>

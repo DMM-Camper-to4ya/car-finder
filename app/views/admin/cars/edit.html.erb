@@ -1,0 +1,40 @@
+<div class="container">
+<div class="col-md-7">
+
+<div class="m-5"><h3>登録番号<%= @car.id %>番の編集画面</h3></div>
+
+<%= form_with model: @car, url:admin_car_path(@car.id),method: :patch do |f| %>
+<table class="table">
+<tr>
+<th class="col-xs-2">車種</th>
+<td class="col-xs-10">
+<%= f.text_field :car_model, autofocus: true, id:"car_model"%>
+</td>
+</tr>
+<tr>
+<th class="col-xs-2">年式</th>
+<td class="col-xs-10">
+<%= f.text_field :years, autofocus: true, id:"years"%>
+</td>
+</tr>
+<tr>
+<th class="col-xs-2">本体価格</th>
+<td class="col-xs-10">
+<%= f.text_field :body_price, autofocus: true, id:"body_price"%>万円
+</td>
+</tr>
+<tr>
+<th class="col-xs-2">支払い総額</th>
+<td class="col-xs-10">
+<%= f.text_field :total_price, autofocus: true, id:"total_price"%>万円
+</td>
+</tr>
+
+</table>
+<div class="row text-right">
+<%= f.submit "変更を保存", class: "btn btn-primary" %>
+</div>
+<% end %>
+
+</div>
+</div>
