@@ -34,7 +34,7 @@ class Admin::CarsController < ApplicationController
  def destroy
  car = Car.find(params[:id])
  car.destroy
- redirect_to  admin_cars_path
+ redirect_to  admin_path
  end
 
  private
