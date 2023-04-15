@@ -1,2 +1,7 @@
 class Admin::FavoritesController < ApplicationController
-end
+
+ def
+ customers = Customer.all
+ customers.favorites
+ end
+

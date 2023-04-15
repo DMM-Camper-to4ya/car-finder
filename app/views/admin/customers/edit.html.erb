@@ -1,8 +1,9 @@
 <div class="container">
 <div class="col-md-7">
-<div class="m-5"><h3>会員情報編集</h3></div>
 
-<%= form_with model: @customer, url:customers_information_path(@customer.id),method: :patch do |f| %>
+<div class="m-5"><h3><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h3></div>
+
+<%= form_with model: @customer, url:admin_customer_path(@customer.id),method: :patch do |f| %>
 <table class="table">
 <tr>
 <th class="col-xs-2">氏名</th>
@@ -41,12 +42,20 @@
 <td class="col-xs-10">
 <%= f.text_field :email, autofocus: true, id:"email"%>
 </tr>
+<tr>
+<th class="col-xs-2">会員ステータス</th>
+<td class="col-xs-10">
+<%= f.radio_button :is_deleted, false %>
+<%= f.label :is_deleted_false,"有効" %>
+<%= f.radio_button :is_deleted, true %>
+<%= f.label :is_deleted_true,"退会" %>
+</td>
+</tr>
 </table>
-<div class="actions col-xs-10 col-xs-offset-2">
-<%= f.submit "編集内容を保存",class: "btn btn-primary" %>
-<%= link_to "退会する", unsubscribe_path, class: "btn btn-danger" %>
+<div class="row text-right">
+<%= f.submit "変更を保存", class: "btn btn-primary" %>
 </div>
 <% end %>
-</tr>
+
 </div>
 </div>

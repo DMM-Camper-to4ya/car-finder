@@ -1,6 +1,8 @@
 <div class="container">
 <div class="col-md-7">
 <div class="p-2 bd-highlight">
+<thead>
+<tbody>
 <h3><td>在庫車両詳細　登録NO.<%= @car.id %></td></h3>
 </div>
 <table class="table table-bordered">
@@ -19,7 +21,23 @@
 <tr>
 <td>車両画像</td><td><%= image_tag @car.image, size: "250x200" %></td>
 </tr>
+<tr>
+<% if @car.favorited_by?(current_customer) %>
+<p>
+  <%= link_to public_car_favorites_path(@car), method: :delete do %>
+    ★<%= @car.favorites.count %> お気に入り済み
+  <% end %>
+</p>
+<% else %>
+<p>
+  <%= link_to public_car_favorites_path(@car), method: :post do %>
+    ☆<%= @car.favorites.count %> お気に入り
+  <% end %>
+</p>
+<% end %>
+</tr>
 </table>
 </thead>
 </tbody>
+</div>
 </div>
