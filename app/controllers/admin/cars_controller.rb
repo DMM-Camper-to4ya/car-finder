@@ -19,6 +19,7 @@ class Admin::CarsController < ApplicationController
 
  def show
  @car = Car.find(params[:id])
+ @cars=Car.all
  end
 
  def edit
@@ -37,10 +38,14 @@ class Admin::CarsController < ApplicationController
  redirect_to  admin_path
  end
 
+ def ranking
+ @all_ranks = Car.create_all_ranks
+ end
+
  private
 
  def car_params
-   params.require(:car).permit(:car_model, :years, :body_price, :total_price, :image)
+   params.require(:car).permit(:car_model, :years, :body_price, :total_price, :image, :video_top)
  end
 end
 

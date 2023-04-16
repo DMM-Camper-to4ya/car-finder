@@ -23,9 +23,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+get 'admin/cars' => 'admin/cars#ranking',as: 'ranking'
 namespace :admin do
 resources :cars, only: [:new, :create, :show, :edit, :update, :destroy]
 resources :customers, only:[:index, :show, :edit, :update, :destroy]
-resources :favorites, only:[:index]
+#resources :favorites, only:[:index]
 end
 end

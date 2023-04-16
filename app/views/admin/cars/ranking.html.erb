@@ -1,0 +1,7 @@
+<h3>お気に入りランキング</h3>
+<% @all_ranks.each.with_index(1) do |car,i| %>
+第<%= i %>位
+<%= car.years %>年式
+<%= car.car_model %>
+☆お気に入り数<%= car.favorites.count %>
+<% end %>

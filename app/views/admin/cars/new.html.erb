@@ -17,8 +17,10 @@
   <%= f.text_field :body_price %>
   <h4>支払い総額</h4>
   <%= f.text_field :total_price %>
-   <h4>車両画像</h4>
+  <h4>車両画像</h4>
   <%= f.file_field :image, accept: "image/*" %>
+  <h4>車両紹介動画</h4>
+  <%= f.file_field :video_top, :accept => 'video/*' %>
 
 
   <%= f.submit '投稿' %>

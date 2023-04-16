@@ -2,7 +2,7 @@
 <div class="col-md-7">
 
 <div class="p-2 bd-highlight">
-<h3><td>在庫車両詳細　登録番号<%= @car.id %>番</td></h3>
+<h3><td>在庫車両詳細 登録番号<%= @car.id %>番</td></h3>
 </div>
 <table class="table table-bordered">
 <tr>
@@ -19,6 +19,9 @@
 </tr>
 <tr>
 <td>車両画像</td><td><%= image_tag @car.image, size: "250x200" %></td>
+</tr>
+<tr>
+<td>車両紹介動画</td><td><%= video_tag(@car.video_top.to_s, :controls => true, :size => "250x200") %></td>
 </tr>
 </table>
 <tr>
