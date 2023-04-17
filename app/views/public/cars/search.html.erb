@@ -3,17 +3,9 @@
 <div class="col-md-3">
 </div>
 
-<p class="text-center">
-<h3>車両検索</h3>
-<%= search_form_for @q, url: search_public_cars_path do |f| %>
-<%= f.label :car_model_cont, '(車種)' %>
-<%= f.search_field :car_model_cont %>
-<%= f.submit '検索' %>
-<% end %>
-</p>
 
-<div class="col-md-12 ">
-<h2>在庫一覧</h2>
+<div class="col-md-7 ">
+<h2>検索結果一覧</h2>
 
 <table class='table table-hover table-inverse'>
 <thead>
@@ -27,7 +19,7 @@
 </tr>
 </thead>
 <tbody>
-<% @cars.each do |car| %>
+<% @results.each do |car| %>
 <tr>
 <td><%= car.id %></td>
 <td><%= link_to public_car_path(car.id) do %>
@@ -45,6 +37,8 @@
 <td></td>
 </tr>
 <% end %>
+<td><%= link_to '戻る', public_cars_path %></td>
+<td><%= link_to 'Top', root_path %></td>
 </tbody>
 </table>
 </div>

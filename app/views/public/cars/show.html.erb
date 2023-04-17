@@ -22,6 +22,9 @@
 <td>車両画像</td><td><%= image_tag @car.image, size: "250x200" %></td>
 </tr>
 <tr>
+<td>車両紹介動画</td><td><%= video_tag(@car.video_top.to_s, :controls => true, :size => "250x200") %></td>
+</tr>
+<tr>
 <% if @car.favorited_by?(current_customer) %>
 <p>
   <%= link_to public_car_favorites_path(@car), method: :delete do %>

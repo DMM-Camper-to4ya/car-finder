@@ -7,10 +7,10 @@ class Public::FavoritesController < ApplicationController
  redirect_to public_car_path(car)
  end
 
-  def destroy
-  car = Car.find(params[:car_id])
-  favorite = current_customer.favorites.find_by(car_id: car.id)
-  favorite.destroy
+ def destroy
+ car = Car.find(params[:car_id])
+ favorite = current_customer.favorites.find_by(car_id: car.id)
+ favorite.destroy
  redirect_to public_car_path(car)
-  end
+ end
 end

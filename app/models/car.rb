@@ -9,6 +9,10 @@ class Car < ApplicationRecord
   has_many :favorites, dependent: :destroy
   mount_uploader :video_top, VideoUploader
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["car_model", "years"]
+  end
+
   def self.create_all_ranks
   Car.find(Favorite.group(:car_id).where(created_at: Time.current.all_week).order('count(car_id) desc').limit(10).pluck(:car_id))
   end

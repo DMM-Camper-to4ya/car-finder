@@ -14,7 +14,11 @@ devise_for :customers,skip: [:passwords], controllers: {
 
 namespace :public do
 resources :cars, only: [:show, :index] do
+ collection do
+      get 'search'
+    end
 resource :favorites, only: [:create, :destroy]
+
 end
 end
 
