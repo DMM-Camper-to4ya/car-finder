@@ -13,7 +13,7 @@ devise_for :customers,skip: [:passwords], controllers: {
 }
 
 namespace :public do
-resources :reservations, only: [:index]
+resources :reservations, only: [:index,:show, :new, :create]
 resources :cars, only: [:show, :index] do
  collection do
       get 'search'
