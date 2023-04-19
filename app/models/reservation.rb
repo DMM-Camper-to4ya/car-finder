@@ -1,4 +1,5 @@
 class Reservation < ApplicationRecord
+
   belongs_to :customer
 
   def self.reservations_after_three_month

@@ -1,7 +1,30 @@
-<h3>お気に入りランキング</h3>
+<div class='container px-5 mt-5'>
+<div class="row">
+<div class="col-md-3">
+</div>
+
+<div class='container px-5 '>
+<div class="col-md-6 ">
+<h2>お気に入り数ランキング</h2>
+</div>
+<table class='table table-hover table-inverse'>
+<thead>
+<tr>
+<th>順位</th>
+<th>車種</th>
+<th>年式</th>
+<th>車両画像</th>
+<th>お気に入り数</th>
+</tr>
+</thead>
+<tbody>
 <% @all_ranks.each.with_index(1) do |car,i| %>
-第<%= i %>位
-<%= car.years %>年式
-<%= car.car_model %>
-☆お気に入り数<%= car.favorites.count %>
+<tr>
+<td><%= i %>位</td>
+<td><%= car.years %></td>
+<td><%= car.car_model %></td>
+<td><%= image_tag car.image, size: "130x100" %></td>
+<td>★<%= car.favorites.count %></td>
 <% end %>
+</div>
+</div>
