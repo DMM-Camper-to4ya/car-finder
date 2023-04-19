@@ -10,7 +10,7 @@
 </li>
 
 <li class="nav-item">
-  <%= link_to "来店予約一覧", public_reservations_path, class: 'mx-1 nav-link btn btn-light btn-sm mr-2' %>
+  <%= link_to "来店予約をする", public_reservations_path, class: 'mx-1 nav-link btn btn-light btn-sm mr-2' %>
 </li>
 
 <li class="nav-item">
@@ -25,6 +25,10 @@
 <% elsif admin_signed_in? %>
 
 <ul class="nav col-6 col-sm-3 col-lg-auto my-2 justify-content-center my-md-0">
+<li class="nav-item">
+  <%= link_to "来店予約一覧", admin_reservations_path, class: 'mx-1 nav-link btn btn-light btn-sm mr-2' %>
+</li>
+
 <li class="nav-item">
   <%= link_to "在庫一覧", admin_path, class: 'mx-1 nav-link btn btn-light btn-sm mr-2' %>
 </li>
@@ -52,8 +56,7 @@
 <div class="col-md">
 <ul class="nav col-6 col-sm-3 col-lg-auto my-2 justify-content-end my-md-0">
 <li class="nav-item">
-  <%#= link_to "About", about_path, class: 'mx-1 nav-link btn btn-light btn-sm mr-2' %>
-</li>
+<div class="welcome text-light my-2">ログイン前は在庫車両一覧・Topページのみ閲覧可能です。</div>
 
 <li class="nav-item">
  <%= link_to "在庫一覧", public_cars_path, class: 'mx-1 nav-link btn btn-light btn-sm mr-2' %>
