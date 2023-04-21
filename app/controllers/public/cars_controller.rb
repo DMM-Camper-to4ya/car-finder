@@ -2,7 +2,7 @@ class Public::CarsController < ApplicationController
  before_action :set_q, only: [:index, :search]
 
  def index
- @cars=Car.all
+ @cars=Car.page(params[:page])
  end
 
  def search

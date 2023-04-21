@@ -14,7 +14,7 @@ class Admin::CarsController < ApplicationController
  end
 
  def index
- @cars=Car.all
+ @cars=Car.page(params[:page])
  end
 
  def show

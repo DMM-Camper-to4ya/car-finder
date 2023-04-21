@@ -60,3 +60,4 @@ gem 'jquery-rails'
 gem "carrierwave"
 gem 'ransack'
 gem "simple_calendar", "~> 2.0"
+gem 'kaminari','~> 1.2.1'

@@ -1,7 +1,8 @@
 class Admin::ReservationsController < ApplicationController
 
   def index
-  @customer = Customer.all
+  @reservation = Reservation.all
+  #@customer = Customer.all
   #@customer_reservations = Reservation.find(params[:id])
   end
 
