@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
-    <div class="text-center py-3 mx-auto d-flex align-cars-center justify-content-center">
+    <div class="text-center py-3 mx-auto d-flex align-cars-center justify-content-center ">
       <%= image_tag(asset_path("top.jpg"), width: '95%', height: '90%') %>
     </div>
   </div>
   <div class="row">
-    <div class="col py-1 text-center">
+    <div class="shadow-sm col py-1 text-center">
     <span>
-      <h4>Car-Finder</h4></br>
+      <div class=h2>Car-Finder</h4></br>
       あなたの生活をより良くする車選びを</br>
     </span>
     </div>
@@ -18,10 +18,12 @@
         <div class="row">
         <% @cars.each do |car| %>
         <div class="col-md-3">
-          <div class="card">
+          <div class="card" class="rounded-lg">
          <%= link_to public_car_path(car.id) do %>
+         <div class="card" class="rounded-lg">
          <%= image_tag car.image, size: "130x100" %>
          <% end %>
+         </div>
             <div class="card-body">
               <h6 class="card-title"><%= car.car_model %></h6>
               <h6 class="card-text"><%= car.years %>年式</h6>
