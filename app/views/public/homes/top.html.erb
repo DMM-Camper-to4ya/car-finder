@@ -1,26 +1,27 @@
+
+<div class="jumbotron jumbotron-fluid text-center">
+        <div class="container">
+            <h1 class="display-3">Car-Finder</h1>
+            <p class="lead">より良い生活を送るために、車選びをサポートします！</p>
+        </div>
+    </div>
 <div class="container">
   <div class="row">
     <div class="text-center py-3 mx-auto d-flex align-cars-center justify-content-center ">
       <%= image_tag(asset_path("top.jpg"), width: '95%', height: '90%') %>
     </div>
   </div>
-  <div class="row">
-    <div class="shadow-sm col py-1 text-center">
-    <span>
-      <div class=h2>Car-Finder</h4></br>
-      あなたの生活をより良くする車選びを</br>
-    </span>
-    </div>
-  </div>
     <div class="row">
       <div class="col">
-        <h4 class="py-2">当店在庫車両</h4>
+        <h4 class= "text-center" >当店在庫車両</h4>
         <div class="row">
+          <div class="container-fluid">
+        <div class="card-deck m-3">
         <% @cars.each do |car| %>
-        <div class="col-md-3">
-          <div class="card" class="rounded-lg">
+        <div class="col-md-3 py-3">
+          <div class="card">
          <%= link_to public_car_path(car.id) do %>
-         <div class="card" class="rounded-lg">
+         <div class="card">
          <%= image_tag car.image, size: "130x100" %>
          <% end %>
          </div>
@@ -34,7 +35,7 @@
         <% end %>
       </div>
       <div class="text-right py-2">
-        <a href = "/public/cars">全ての在庫を見る></a>
+      <a href = "/public/cars">全ての在庫を見る></a>
       </div>
     </div>
     </div>
