@@ -6,6 +6,7 @@ class Admin::CarsController < ApplicationController
 
  def create
  @car = Car.new(car_params)
+ @car.score = Language.get_data(car_params[:body])
  if @car.save
  redirect_to admin_car_path(@car.id)
  else
@@ -14,7 +15,7 @@ class Admin::CarsController < ApplicationController
  end
 
  def index
- @cars=Car.page(params[:page])
+ @cars=Car.all
  end
 
  def show
@@ -45,7 +46,7 @@ class Admin::CarsController < ApplicationController
  private
 
  def car_params
-   params.require(:car).permit(:car_model, :years, :body_price, :total_price, :image, :video_top)
+   params.require(:car).permit(:car_model, :years, :body_price, :total_price, :image, :video_top, :body)
  end
 end
 
