@@ -5,7 +5,7 @@
 <%= search_form_for @q, url: search_public_cars_path do |f| %>
 <%= f.label :car_model_cont, '(車種)' %>
 <%= f.search_field :car_model_cont %>
-<%= f.submit '検索' %>
+<button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
 <% end %>
 </div>
 <%= render 'admin/cars/car', cars: @cars %>
