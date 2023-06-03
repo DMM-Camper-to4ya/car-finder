@@ -1,35 +1,33 @@
-<div class='container px-5 px-sm-0'>
-<div class="row">
-<div class="col-md-3 py-3 px-1 ">
-<h3>車両検索</h3>
+
 <%= search_form_for @q, url: search_public_cars_path do |f| %>
-<%= f.label :car_model_cont, '(車種)' %>
-<%= f.search_field :car_model_cont %>
+<%= f.search_field :car_model_cont,placeholder: "在庫車両検索" %>
 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
 <% end %>
 </div>
-<%= render 'admin/cars/car', cars: @cars %>
-<% @cars.each do |car| %>
-<tr>
-<td><%= car.id %></td>
-<td><%= link_to public_car_path(car.id) do %>
-<%= car.car_model %>
-<% end %>
-</td>
 
-<td><%= car.years %>（年）</td>
-<td><%= car.body_price %>万円</td>
-<td><%= car.total_price %>万円</td>
-<td><%= link_to public_car_path(car.id) do %>
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+         <% @cars.each do |car| %>
+<%= link_to public_car_path(car.id) do %>
 <%= image_tag car.image, size: "130x100" %>
+
+    </div>
 <% end %>
-</td>
-<td></td>
-</tr>
-<% end %>
-</tbody>
-</table>
-<%#= paginate cars %>
-</div>
-</div>
+    <div class="col-md-8">
+      <div class="card-body">
+
+        <h5 class="card-title"><%= car.car_model %></h5>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= car.years %>年式</li>
+    <li class="list-group-item">車両本体価格 <%= car.body_price %>万円</li>
+    <li class="list-group-item">支払い総額　<%= car.total_price %>万円</li></br>
+    <% end %>
+  </ul>
+
+
+      </div>
+
+    </div>
+  </div>
 </div>
