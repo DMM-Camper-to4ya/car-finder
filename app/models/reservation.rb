@@ -1,7 +1,6 @@
 class Reservation < ApplicationRecord
 
-
- def self.check_reservation_day(day)
+def self.check_reservation_day(day)
     if day < Date.current
       return "過去の日付は選択できません。正しい日付を選択してください。"
     elsif day < (Date.current + 1)
@@ -9,7 +8,8 @@ class Reservation < ApplicationRecord
     elsif (Date.current >> 3) < day
       return "3ヶ月以降の日付は選択できません。正しい日付を選択してください。"
     end
- end
+end
+
   def self.reservations_after_three_month
     # 今日から3ヶ月先までのデータを取得
     reservations = Reservation.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
@@ -23,8 +23,6 @@ class Reservation < ApplicationRecord
     end
     reservation_data
   end
-
-
 
   belongs_to :customer
 end
