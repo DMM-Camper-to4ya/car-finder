@@ -6,7 +6,7 @@
     </div>
     <div class="col-12 mt-3 content">
       <%= form_with model: @reservation, url: public_reservations_path,method: :post do |form| %>
-      <%#= render 'layouts/error_messages', model: form.object %>
+      <%= render 'layouts/error_messages', model: form.object %>
       <div class="day form-group">
         <%= form.label :day, '日付' %>
         <%= form.text_field :day, class: 'form-control', value: @day, readonly: true %>

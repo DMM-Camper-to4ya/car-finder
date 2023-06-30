@@ -1,5 +1,5 @@
 class Admin::CarsController < ApplicationController
-
+before_action :authenticate_admin!
  def new
  @car = Car.new
  end
