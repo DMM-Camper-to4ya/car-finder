@@ -1,7 +1,7 @@
-<% if model.errors.any? %>
+<% if @reservation.errors.any? %>
 	<div class="alert alert-warning">
 		<ul>
-			<% model.form.object.errors.full_messages.each do |message| %>
+			<% @reservation.errors.full_messages.each do |message| %>
 			<li><%= message %></li>
 			<% end %>
 		</ul>
