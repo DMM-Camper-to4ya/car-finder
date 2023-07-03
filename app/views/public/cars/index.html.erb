@@ -1,33 +1,32 @@
-
+<div class="col">
 <%= search_form_for @q, url: search_public_cars_path do |f| %>
 <%= f.search_field :car_model_cont,placeholder: "在庫車両検索" %>
 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
 <% end %>
 </div>
 
-<div class="card mb-3">
-  <div class="row g-0">
-    <div class="col-md-4">
-         <% @cars.each do |car| %>
+
+<% @cars.each do |car| %>
+<div class="col">
+<div class="card">
+<div class="row g-0">
+<div class="col-md-4">
 <%= link_to public_car_path(car.id) do %>
-<%= image_tag car.image, size: "130x100" %>
-
-    </div>
+<%= image_tag car.image, size: "380x350" %>
 <% end %>
-    <div class="col-md-8">
-      <div class="card-body">
+</div>
 
-        <h5 class="card-title"><%= car.car_model %></h5>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"><%= car.years %>年式</li>
-    <li class="list-group-item">車両本体価格 <%= car.body_price %>万円</li>
-    <li class="list-group-item">支払い総額　<%= car.total_price %>万円</li></br>
-    <% end %>
-  </ul>
-
-
-      </div>
-
+  <div class="col-md-8">
+    <div class="card-body">
+      <h5 class="card-title"><%= car.car_model %></h5>
+      <p class="card-text"><%= car.years %>年式</p>
+      <p class="card-text">車両本体価格 <%= car.body_price %>万円</p>
+      <p class="card-text">支払い総額　<%= car.total_price %>万円</p>
+      <p class="card-text">担当者からのコメント</p><p><small class="text-muted"><%= car.body %></small></p>
     </div>
   </div>
 </div>
+</div>
+
+</div>
+ <% end %>
