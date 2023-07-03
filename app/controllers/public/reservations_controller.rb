@@ -10,6 +10,10 @@ before_action :authenticate_customer!
     @day = params[:day]
     @time = params[:time]
     @start_time = DateTime.parse(@day + " " + @time + " " + "JST")
+     message = Reservation.check_reservation_day(@day.to_date)
+    if !!message
+      redirect_to public_reservations_path, flash: { alert: message }
+    end
   end
 
   def show

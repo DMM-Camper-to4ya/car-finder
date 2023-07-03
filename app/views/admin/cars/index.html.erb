@@ -1,29 +1,25 @@
-<div class='container px-5 px-sm-0'>
-<div class="row">
-<div class="col-md-3">
-</div>
-<%= render 'admin/cars/car', cars: @cars %>
+
 <% @cars.each do |car| %>
-<tr>
-<td><%= car.id %></td>
-<td><%= link_to admin_car_path(car.id) do %>
-<%= car.car_model %>
+<div class="col">
+<div class="card">
+<div class="row g-0 mb-4 mt-4">
+<div class="col-md-4">
+<%= link_to public_car_path(car.id) do %>
+<%= image_tag car.image, size: "380x350" %>
 <% end %>
-</td>
+</div>
 
-<td><%= car.years %>（年）</td>
-<td><%= car.body_price %>万円</td>
-<td><%= car.total_price %>万円</td>
-<td><%= link_to admin_car_path(car.id) do %>
-<%= image_tag car.image, size: "130x100" %>
-<% end %>
-</td>
-<td></td>
-</tr>
-<% end %>
-</tbody>
-</table>
+  <div class="col-md-8">
+    <div class="card-body">
+      <h5 class="card-title"><%= car.car_model %></h5>
+      <p class="card-text"><%= car.years %>年式</p>
+      <p class="card-text">車両本体価格 <%= car.body_price %>万円</p>
+      <p class="card-text">支払い総額 <%= car.total_price %>万円</p>
+      <p class="card-text">担当者からのコメント</p><p><small class="text-muted"><%= car.body %></small></p>
+    </div>
+  </div>
+</div>
+</div>
 
 </div>
-</div>
-</div>
+ <% end %>
